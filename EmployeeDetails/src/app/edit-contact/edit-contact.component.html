@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <form [formGroup]='contactform' (ngSubmit)="onUpdate()">
+                <!-- <input type="hidden" name="_id" ngModel> -->
+                <div class="form-group">
+                    <label for="FirstName">FirstName</label>
+                    <input type="text" class="form-control" id="FirstName"  formControlName="FirstName" placeholder="Enter Your First Name" required>
+                </div>
+                  <div class="form-group">
+                    <label for="LastName">LastName</label>
+                    <input type="text" class="form-control" id="LastName" formControlName="LastName" placeholder="LastName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="Phone">Phone Number</label>
+                    <input type="number" class="form-control" id="Phone" formControlName="Phone" ngModel placeholder="Phone Number" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary" [disabled]="!contactform.valid">Update</button>
+            </form>
+       </div>
+    </div>
+</div>

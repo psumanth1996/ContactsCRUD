@@ -1,0 +1,49 @@
+<div class="container">
+   <div class="row">
+       <div class="col-md-12">
+           <div class="card">
+               <div class="card-body">
+                   <div class="row">
+                       <div class="col-md-12">
+                            <form [formGroup]='contactform' (ngSubmit)="onSubmit()">
+                                <!-- <input type="hidden" name="_id" ngModel> -->
+                                <div class="form-group">
+                                    <label for="FirstName">FirstName</label>
+                                    <input type="text" class="form-control" id="FirstName"  formControlName="FirstName" placeholder="Enter Your First Name" required>
+                                </div>
+                                  <div class="form-group">
+                                    <label for="LastName">LastName</label>
+                                    <input type="text" class="form-control" id="LastName" formControlName="LastName" placeholder="LastName" required>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="Phone">Phone Number</label>
+                                    <input type="number" class="form-control" id="Phone" formControlName="Phone" ngModel placeholder="Phone Number" required>
+                                  </div>
+                                  <button type="submit" class="btn btn-primary">Save</button>
+                            </form>
+                       </div>
+                       <hr><br>
+                       <div class="col-md-12">
+                            <table border="1" style="padding: 10px" class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Phone</th>
+                                    </tr>
+                                </thead>
+                                <tr *ngFor="let emp of employees" scope="row">
+                                    <td>{{ emp.FirstName }} </td>
+                                    <td>{{ emp.LastName }}</td>
+                                    <td>{{ emp.Phone }}</td>
+                                    <td><button class="btn btn-warning" routerLink="edit/{{ emp._id }}">Edit</button></td>
+                                    <td><button class="btn btn-danger" (click)="onDelete(emp._id)">Delete</button></td>
+                                </tr>
+                            </table>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
